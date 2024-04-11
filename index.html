@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Harry Potter Quiz</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Hogwarts Sorting Hat Game</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Harry Potter Quiz</h1>
+    <h1>Hogwarts Sorting Hat Game</h1>
     <div id="quiz">
       <h2>Question <span id="questionNum">1</span></h2>
       <p id="question"></p>
       <div id="options">
-        <button class="option" onclick="checkAnswer(this)"></button>
-        <button class="option" onclick="checkAnswer(this)"></button>
-        <button class="option" onclick="checkAnswer(this)"></button>
-        <button class="option" onclick="checkAnswer(this)"></button>
+        <button class="option" onclick="selectAnswer(this)"></button>
+        <button class="option" onclick="selectAnswer(this)"></button>
+        <button class="option" onclick="selectAnswer(this)"></button>
+        <button class="option" onclick="selectAnswer(this)"></button>
       </div>
       <button id="nextButton" onclick="nextQuestion()">Next</button>
     </div>
     <div id="result"></div>
   </div>
 
-  <script src="quiz.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>

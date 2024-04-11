@@ -1,33 +1,33 @@
 const questions = [
     {
-      question: "What is the name of Harry Potter's owl?",
-      options: ["Hedwig", "Crookshanks", "Scabbers", "Fawkes"],
-      answer: "Hedwig"
+      question: "Which trait do you value the most?",
+      options: ["Bravery", "Ambition", "Intelligence", "Loyalty"],
+      houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
     },
     {
-      question: "What is the name of Harry Potter's best friends?",
-      options: ["Ron Weasley and Hermione Granger", "Neville Longbottom and Luna Lovegood", "Draco Malfoy and Ginny Weasley", "Cho Chang and Cedric Diggory"],
-      answer: "Ron Weasley and Hermione Granger"
+      question: "What is your greatest fear?",
+      options: ["Failure", "Being overlooked", "Ignorance", "Betrayal"],
+      houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
     },
     {
-      question: "What house was Harry Potter sorted into?",
-      options: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"],
-      answer: "Gryffindor"
+      question: "Which animal do you identify with the most?",
+      options: ["Lion", "Snake", "Eagle", "Badger"],
+      houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
     },
     {
-      question: "Who is the author of the Harry Potter series?",
-      options: ["J.K. Rowling", "Stephenie Meyer", "George R.R. Martin", "C.S. Lewis"],
-      answer: "J.K. Rowling"
+      question: "What kind of people do you admire?",
+      options: ["Heroes", "Leaders", "Scholars", "Friends"],
+      houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
     },
     {
-      question: "What is the name of the sport played on broomsticks in the wizarding world?",
-      options: ["Quidditch", "Broomstickball", "Wizardball", "Broomstick Racing"],
-      answer: "Quidditch"
+      question: "What would you rather be known for?",
+      options: ["Bravery", "Ambition", "Intelligence", "Kindness"],
+      houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
     }
   ];
   
   let currentQuestion = 0;
-  let score = 0;
+  let answers = [];
   
   function loadQuestion() {
     const q = questions[currentQuestion];
@@ -39,12 +39,9 @@ const questions = [
     }
   }
   
-  function checkAnswer(btn) {
-    const selectedAnswer = btn.textContent;
-    const correctAnswer = questions[currentQuestion].answer;
-    if (selectedAnswer === correctAnswer) {
-      score++;
-    }
+  function selectAnswer(btn) {
+    const selectedAnswerIndex = Array.from(btn.parentNode.children).indexOf(btn);
+    answers.push(selectedAnswerIndex);
     document.getElementById('nextButton').style.display = 'block';
     document.getElementById('options').style.pointerEvents = 'none';
   }
@@ -56,12 +53,30 @@ const questions = [
       document.getElementById('nextButton').style.display = 'none';
       document.getElementById('options').style.pointerEvents = 'auto';
     } else {
-      showResult();
+      sortUser();
     }
   }
   
-  function showResult() {
+  function sortUser() {
+    const answerCounts = [0, 0, 0, 0]; // Count of answers for each house
+    answers.forEach(answerIndex => {
+      answerCounts[answerIndex]++;
+    });
+    const maxCount = Math.max(...answerCounts);
+    const dominantHouses = answerCounts.reduce((acc, count, index) => {
+      if (count === maxCount) {
+        acc.push(questions[0].houses[index]);
+      }
+      return acc;
+    }, []);
+  
     const resultContainer = document.getElementById('result');
-    resultContainer.textContent = `You scored ${score} out of ${questions.length}!`;
+    if (dominantHouses.length === 1) {
+      resultContainer.textContent = `Congratulations! You belong to ${dominantHouses[0]}!`;
+    } else {
+      resultContainer.textContent = `You have traits of multiple houses: ${dominantHouses.join(", ")}`;
+    }
   }
+  
   loadQuestion();
+  
