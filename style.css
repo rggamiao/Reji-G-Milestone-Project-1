@@ -1,56 +1,90 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-  }
-  
-  .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
-    text-align: center;
-    color: #333;
-  }
-  
-  h2 {
-    margin-bottom: 10px;
-  }
-  
-  #quiz {
-    margin-bottom: 20px;
-  }
-  
-  #options {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .option {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .option:hover {
-    background-color: #45a049;
-  }
-  
-  #nextButton {
-    display: none;
-  }
-  
-  #result {
-    text-align: center;
-    font-weight: bold;
-    color: #333;
-  }
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  overflow: hidden; /* Prevents scrollbars caused by video overflow */
+}
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1; /* Places the video behind other content */
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(44, 39, 35, 0.8); /* Adding transparency to the container background */
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  text-align: center;
+  color: #ffd700; /* Hogwarts gold */
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-bottom: 10px;
+  color: #ffd700;
+}
+
+#quiz {
+  margin-bottom: 20px;
+}
+
+#questionNum {
+  font-weight: bold;
+  color: #ffd700;
+}
+
+#question {
+  color: #fff;
+}
+
+#options {
+  display: flex;
+  flex-direction: column;
+}
+
+.option {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #5c8d89; /* Slytherin green */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.option:hover {
+  background-color: #336666; /* Darker Slytherin green */
+}
+
+#nextButton {
+  display: none;
+  background-color: #ffd700; /* Hogwarts gold */
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+#nextButton:hover {
+  background-color: #ffe166; /* Lighter Hogwarts gold */
+}
+
+#result {
+  text-align: center;
+  font-weight: bold;
+  color: #ffd700;
+}
