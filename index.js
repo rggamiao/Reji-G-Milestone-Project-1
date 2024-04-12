@@ -60,23 +60,16 @@ const questions = [
   function sortUser() {
     const answerCounts = [0, 0, 0, 0]; // Count of answers for each house
     answers.forEach(answerIndex => {
-      answerCounts[answerIndex]++;
+        answerCounts[answerIndex]++;
     });
     const maxCount = Math.max(...answerCounts);
-    const dominantHouses = answerCounts.reduce((acc, count, index) => {
-      if (count === maxCount) {
-        acc.push(questions[0].houses[index]);
-      }
-      return acc;
-    }, []);
-  
+    const dominantHouseIndex = answerCounts.indexOf(maxCount);
+    const dominantHouse = questions[0].houses[dominantHouseIndex];
+
     const resultContainer = document.getElementById('result');
-    if (dominantHouses.length === 1) {
-      resultContainer.textContent = `Congratulations! You belong to ${dominantHouses[0]}!`;
-    } else {
-      resultContainer.textContent = `You have traits of multiple houses: ${dominantHouses.join(", ")}`;
-    }
-  }
+    resultContainer.textContent = `Congratulations! You belong to ${dominantHouse}!`;
+}
+
   
   loadQuestion();
   
