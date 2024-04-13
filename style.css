@@ -1,7 +1,12 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                                                
   color: #fff;
   overflow: hidden; /* Prevents scrollbars caused by video overflow */
+}
+
+h1, h2 {
+  font-family: 'Harry Potter', sans-serif;
+                                                
 }
 
 #bg-video {
