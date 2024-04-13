@@ -62,14 +62,14 @@ h2 {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #5c8d89; /* Slytherin green */
+  background-color: #8d5c5c; /* Slytherin green */
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .option:hover {
-  background-color: #336666; /* Darker Slytherin green */
+  background-color: #4d0b03; /* Darker Slytherin green */
 }
 
 #nextButton {
