@@ -102,7 +102,7 @@ function sortUser() {
       imageName = "gryffindorhat.png";
       break;
     case "Hufflepuff":
-      imageName = "hufflepuffhat.png";
+      imageName = "hufflepuffHat.png";
       break;
     case "Ravenclaw":
       imageName = "ravenclawhat.png";
