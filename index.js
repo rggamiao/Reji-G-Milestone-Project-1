@@ -93,6 +93,27 @@ function sortUser() {
 
   const resultContainer = document.getElementById('result');
   resultContainer.textContent = `Congratulations! You belong to ${dominantHouse}!`;
+
+  // Display the corresponding image
+  const imageContainer = document.getElementById('houseImageContainer');
+  let imageName;
+  switch (dominantHouse) {
+    case "Gryffindor":
+      imageName = "gryffindorhat.png";
+      break;
+    case "Hufflepuff":
+      imageName = "hufflepuffhat.png";
+      break;
+    case "Ravenclaw":
+      imageName = "ravenclawhat.png";
+      break;
+    case "Slytherin":
+      imageName = "slytherinhat.png";
+      break;
+    default:
+      imageName = "default.png"; // Default image if house not found
+  }
+  imageContainer.innerHTML = `<img src="assets/${imageName}" alt="${dominantHouse} Hat">`;
 }
 
 

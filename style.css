@@ -88,3 +88,8 @@ h2 {
   font-weight: bold;
   color: #ffd700;
 }
+
+
+#houseImageContainer {
+  text-align: center; /* Centers the content horizontally */
+}
