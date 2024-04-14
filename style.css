@@ -19,6 +19,9 @@ h1, h2 {
 }
 
 .container {
+ 
+  
+  align-items: center; /* Centers children horizontally */
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
@@ -82,9 +85,29 @@ h2 {
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s;
+  margin: 20px auto 0;
 }
 
+
+
 #nextButton:hover {
+  background-color: #ffe166; /* Lighter Hogwarts gold */
+}
+
+#resetButton {
+  display: block;
+  background-color: #ffd700; /* Hogwarts gold */
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  margin: 20px 0 0;
+}
+
+#resetButton:hover {
   background-color: #ffe166; /* Lighter Hogwarts gold */
 }
 
@@ -97,4 +120,9 @@ h2 {
 
 #houseImageContainer {
   text-align: center; /* Centers the content horizontally */
+}
+
+.selected {
+  background-color: #ffc107; /* You can adjust the color as per your preference */
+  color: #000; /* Text color for better visibility */
 }

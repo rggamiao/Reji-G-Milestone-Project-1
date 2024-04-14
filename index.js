@@ -67,20 +67,48 @@ function loadQuestion() {
 function selectAnswer(btn) {
   const selectedAnswerIndex = Array.from(btn.parentNode.children).indexOf(btn);
   answers.push(selectedAnswerIndex);
+
+  // Remove any previously selected option's highlight
+  const options = document.getElementsByClassName('option');
+  for (let i = 0; i < options.length; i++) {
+    options[i].classList.remove('selected');
+  }
+
+  // Add highlight to the selected option
+  btn.classList.add('selected');
+
   document.getElementById('nextButton').style.display = 'block';
   document.getElementById('options').style.pointerEvents = 'none';
+}
+
+function resetAnswer() {
+  answers = []; // Reset the answers array
+  const options = document.getElementsByClassName('option');
+  for (let i = 0; i < options.length; i++) {
+    options[i].classList.remove('selected'); // Remove the 'selected' class from all options
+  }
+  document.getElementById('nextButton').style.display = 'none'; // Hide the Next button
+  document.getElementById('options').style.pointerEvents = 'auto'; // Enable option selection
 }
 
 function nextQuestion() {
   currentQuestion++;
   if (currentQuestion < questions.length) {
     loadQuestion();
+
+    // Remove the 'selected' class from all options
+    const options = document.getElementsByClassName('option');
+    for (let i = 0; i < options.length; i++) {
+      options[i].classList.remove('selected');
+    }
+
     document.getElementById('nextButton').style.display = 'none';
     document.getElementById('options').style.pointerEvents = 'auto';
   } else {
     sortUser();
   }
 }
+
 
 function sortUser() {
   const answerCounts = [0, 0, 0, 0]; // Count of answers for each house
