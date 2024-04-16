@@ -1,14 +1,14 @@
 M1 Project
-# Title of Project (This is usually at the top of a repo's main README.md file.)
+Sorting Hat Game
 
 ## Description
 
-_(Replace this text with a brief description of your game and what inspired you to make it.)_
+This is a quiz game that sorts the user into a Hogwarts house based on the answers they give.
 
 
 ## Deployment
 
-The web game is deployed at __________________ (YOUR DEPLOYED GITHUB.IO URL).
+The web game is deployed at https://rggamiao.github.io/ 
 
 
 ## Game Logic
@@ -22,17 +22,7 @@ Describe the logic involved in player decisions.
   - What are the choices available to the player?
   - What happens when the player makes a choice?
 Describe the logic that evaluates the player's victory/loss/progress status:
-
-___________________________________________________________________________________
-
-___________________________________________________________________________________
-
-___________________________________________________________________________________
-
-___________________________________________________________________________________
-
-___________________________________________________________________________________
-```
+The user will go through a 10 question quiz to get sorted into one of Hogwart's Houses by the Sorting hat.
 
 ### Post-MVP Plans
 
