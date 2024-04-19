@@ -99,7 +99,7 @@ h2 {
   background-color: #ffe166; /* Lighter Hogwarts gold */
 }
 
-#resetButton {
+#resetButton, #retryButton {
   display: block;
   background-color: #ffd700; /* Hogwarts gold */
   color: #000;
@@ -112,10 +112,15 @@ h2 {
   margin: 20px 0 0;
 }
 
-#resetButton:hover {
+#resetButton:hover , #retryButton:hover {
   background-color: #ffe166; /* Lighter Hogwarts gold */
 }
 
+.button-container {
+  display: flex; 
+  justify-content: space-between; 
+  width: 100%; 
+}
 #result {
   text-align: center;
   font-weight: bold;
@@ -131,3 +136,4 @@ h2 {
   background-color: #ffc107; 
   color: #000; 
 }
+

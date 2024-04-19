@@ -91,6 +91,10 @@ function resetAnswer() {
   document.getElementById('options').style.pointerEvents = 'auto'; 
 }
 
+function retryQuiz() {
+  window.location.reload(); 
+}
+
 function nextQuestion() {
   currentQuestion++;
   if (currentQuestion < questions.length) {
