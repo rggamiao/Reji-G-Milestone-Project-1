@@ -9,6 +9,11 @@ h1, h2 {
                                                 
 }
 
+.sorter {
+  font-family: 'Harry Potter', sans-serif;
+  text-align: center;
+}
+
 #bg-video {
   position: fixed;
   top: 0;
@@ -123,6 +128,6 @@ h2 {
 }
 
 .selected {
-  background-color: #ffc107; /* You can adjust the color as per your preference */
-  color: #000; /* Text color for better visibility */
+  background-color: #ffc107; 
+  color: #000; 
 }

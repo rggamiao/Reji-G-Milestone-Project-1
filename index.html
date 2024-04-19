@@ -14,10 +14,11 @@
     <source src="/assets/the Hogwarts Great Hall with moving candles, in the style of Lost (1712954124227).mp4" type="video/mp4">
     Your browser does not support HTML5 video.
   </video>
-  <div class="container">
+  <section class="container">
     <h1>Hogwarts Sorting Hat Game</h1>
+    <p class="sorter"> Which house do you belong to?</p>
     <div id="quiz">
-      <h2>Question <span id="questionNum">1</span></h2>
+      <h2>Question <div id="questionNum">1</div></h2>
       <p id="question"></p>
       <div id="options">
         <button class="option" onclick="selectAnswer(this)"></button>
@@ -29,8 +30,8 @@
       <button id="resetButton" onclick="resetAnswer()">Reset Answer</button>
     </div>
     <div id="result"></div>
-    <div id="houseImageContainer"></div> <!-- Container for house image -->
-  </div>
+    <div id="houseImageContainer"></div> 
+  </section>
 
   <script src="index.js"></script>
 </body>

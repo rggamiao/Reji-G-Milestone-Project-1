@@ -10,8 +10,8 @@ const questions = [
     houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
   },
   {
-    question: "Which animal do you identify with the most?",
-    options: ["Lion", "Snake", "Eagle", "Badger"],
+    question: "What would be your go-to spell?",
+    options: ["Expelliarmus", "Avada Kadavra", "Alohamora", "Wingardium Leviosa"],
     houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
   },
   {
@@ -20,33 +20,33 @@ const questions = [
     houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
   },
   {
-    question: "What would you rather be known for?",
-    options: ["Bravery", "Ambition", "Intelligence", "Kindness"],
+    question: "What would your animagus be?",
+    options: ["Dog ", "Basilisk", "Raven", "Badger"],
     houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
   },
   {
     question: "Which Hogwarts subject do you find the most fascinating?",
-    options: ["Defense Against the Dark Arts", "Potions", "Transfiguration", "Herbology"],
+    options: ["Defense Against the Dark Arts", "Apparition", "History of Magic", "Divination"],
     houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
   },
   {
     question: "If you could visit one place in the wizarding world, where would you go?",
-    options: ["Diagon Alley", "Hogsmeade", "The Forbidden Forest", "The Ministry of Magic"],
+    options: ["Hogsmeade", "The Leaky Cauldron", "Florish & Blotts", "Weasleys' Wizard Wheezes"],
     houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
   },
   {
     question: "Which magical artifact would you like to possess?",
-    options: ["Time-Turner", "Remembrall", "Sneakoscope", "Deluminator"],
+    options: ["Marauder's Map", "Elder Wand", "Alastor Moody's Eyeball", "Invisibility Cloak"],
     houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
   },
   {
     question: "What is your favorite magical creature?",
-    options: ["Hippogriff", "Phoenix", "Niffler", "Thestral"],
+    options: ["Phoenix", "Dragon", "Unicorn", "Thestral"],
     houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
   },
   {
     question: "If you could have one magical ability, what would it be?",
-    options: ["Apparition", "Legilimency", "Metamorphmagus", "Animagus"],
+    options: ["Apparition", "Legilimency", "Occlumency", "Animagus"],
     houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
   }
 ];
@@ -68,13 +68,13 @@ function selectAnswer(btn) {
   const selectedAnswerIndex = Array.from(btn.parentNode.children).indexOf(btn);
   answers.push(selectedAnswerIndex);
 
-  // Remove any previously selected option's highlight
+
   const options = document.getElementsByClassName('option');
   for (let i = 0; i < options.length; i++) {
     options[i].classList.remove('selected');
   }
 
-  // Add highlight to the selected option
+  
   btn.classList.add('selected');
 
   document.getElementById('nextButton').style.display = 'block';
@@ -82,13 +82,13 @@ function selectAnswer(btn) {
 }
 
 function resetAnswer() {
-  answers = []; // Reset the answers array
+  answers = []; 
   const options = document.getElementsByClassName('option');
   for (let i = 0; i < options.length; i++) {
-    options[i].classList.remove('selected'); // Remove the 'selected' class from all options
+    options[i].classList.remove('selected'); 
   }
-  document.getElementById('nextButton').style.display = 'none'; // Hide the Next button
-  document.getElementById('options').style.pointerEvents = 'auto'; // Enable option selection
+  document.getElementById('nextButton').style.display = 'none'; 
+  document.getElementById('options').style.pointerEvents = 'auto'; 
 }
 
 function nextQuestion() {
@@ -96,7 +96,6 @@ function nextQuestion() {
   if (currentQuestion < questions.length) {
     loadQuestion();
 
-    // Remove the 'selected' class from all options
     const options = document.getElementsByClassName('option');
     for (let i = 0; i < options.length; i++) {
       options[i].classList.remove('selected');
@@ -111,7 +110,7 @@ function nextQuestion() {
 
 
 function sortUser() {
-  const answerCounts = [0, 0, 0, 0]; // Count of answers for each house
+  const answerCounts = [0, 0, 0, 0]; 
   answers.forEach(answerIndex => {
       answerCounts[answerIndex]++;
   });
@@ -122,7 +121,7 @@ function sortUser() {
   const resultContainer = document.getElementById('result');
   resultContainer.textContent = `Congratulations! You belong to ${dominantHouse}!`;
 
-  // Display the corresponding image
+
   const imageContainer = document.getElementById('houseImageContainer');
   let imageName;
   switch (dominantHouse) {
@@ -139,7 +138,7 @@ function sortUser() {
       imageName = "slytherinhat.png";
       break;
     default:
-      imageName = "default.png"; // Default image if house not found
+      imageName = "default.png"; 
   }
   imageContainer.innerHTML = `<img src="assets/${imageName}" alt="${dominantHouse} Hat">`;
 }
