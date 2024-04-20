@@ -51,6 +51,15 @@ const questions = [
   }
 ];
 
+function startQuiz() {
+
+  document.getElementById('startPage').style.display = 'none';
+  
+  document.getElementById('quizPage').style.display = 'block';
+ 
+  loadQuestion();
+}
+
 let currentQuestion = 0;
 let answers = [];
 
