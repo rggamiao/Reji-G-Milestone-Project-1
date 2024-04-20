@@ -1,7 +1,7 @@
 body {
                                                 
   color: #fff;
-  overflow: hidden; /* Prevents scrollbars caused by video overflow */
+  overflow: hidden; 
 }
 
 h1, h2 , h4 {
@@ -85,19 +85,19 @@ h2 {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #8d5c5c; /* Slytherin green */
+  background-color: #8d5c5c; 
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .option:hover {
-  background-color: #4d0b03; /* Darker Slytherin green */
+  background-color: #4d0b03; 
 }
 
 #nextButton {
   display: none;
-  background-color: #ffd700; /* Hogwarts gold */
+  background-color: #ffd700; 
   color: #000;
   padding: 10px 20px;
   border: none;
@@ -111,12 +111,12 @@ h2 {
 
 
 #nextButton:hover {
-  background-color: #ffe166; /* Lighter Hogwarts gold */
+  background-color: #ffe166; 
 }
 
 #resetButton, #retryButton {
   display: block;
-  background-color: #ffd700; /* Hogwarts gold */
+  background-color: #ffd700; 
   color: #000;
   padding: 10px 20px;
   border: none;
@@ -128,7 +128,7 @@ h2 {
 }
 
 #resetButton:hover , #retryButton:hover {
-  background-color: #ffe166; /* Lighter Hogwarts gold */
+  background-color: #ffe166; 
 }
 
 .button-container {
@@ -152,7 +152,7 @@ h2 {
 }
 
 #houseImageContainer {
-  text-align: center; /* Centers the content horizontally */
+  text-align: center; 
 }
 
 .selected {
