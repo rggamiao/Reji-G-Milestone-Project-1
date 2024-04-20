@@ -1,4 +1,4 @@
-const questions = [
+let questions = [
   {
     question: "Which trait do you value the most?",
     options: ["Bravery", "Ambition", "Intelligence", "Loyalty"],
@@ -46,7 +46,7 @@ const questions = [
   },
   {
     question: "If you could have one magical ability, what would it be?",
-    options: ["Apparition", "Legilimency", "Occlumency", "Animagus"],
+    options: ["Apparition", "Super Strength", "Mind Reading", "Animagus"],
     houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
   }
 ];
