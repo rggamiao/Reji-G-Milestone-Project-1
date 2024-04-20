@@ -1,4 +1,4 @@
-let questions = [
+const questions = [
   {
     question: "Which trait do you value the most?",
     options: ["Bravery", "Ambition", "Intelligence", "Loyalty"],
@@ -6,23 +6,23 @@ let questions = [
   },
   {
     question: "What is your greatest fear?",
-    options: ["Failure", "Being overlooked", "Ignorance", "Betrayal"],
-    houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
+    options: ["Betrayal", "Ignorance", "Being overlooked", "Failure"],
+    houses: ["Hufflepuff", "Ravenclaw", "Slytherin", "Gryffindor"]
   },
   {
     question: "What would be your go-to spell?",
-    options: ["Expelliarmus", "Avada Kadavra", "Alohamora", "Wingardium Leviosa"],
-    houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
+    options: ["Alohamora", "Wingardium Leviosa", "Avada Kadavra", "Expelliarmus"],
+    houses: ["Ravenclaw", "Hufflepuff", "Slytherin", "Gryffindor"]
   },
   {
     question: "What kind of people do you admire?",
-    options: ["Heroes", "Leaders", "Scholars", "Friends"],
-    houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
+    options: ["Leaders", "Heroes", "Friends", "Scholars"],
+    houses: ["Slytherin", "Gryffindor", "Hufflepuff", "Ravenclaw"]
   },
   {
     question: "What would your animagus be?",
-    options: ["Dog ", "Basilisk", "Raven", "Badger"],
-    houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
+    options: ["Badger", "Dog", "Raven", "Basilisk"],
+    houses: ["Hufflepuff", "Gryffindor", "Ravenclaw", "Slytherin"]
   },
   {
     question: "Which Hogwarts subject do you find the most fascinating?",
@@ -31,25 +31,28 @@ let questions = [
   },
   {
     question: "If you could visit one place in the wizarding world, where would you go?",
-    options: ["Hogsmeade", "The Leaky Cauldron", "Florish & Blotts", "Weasleys' Wizard Wheezes"],
-    houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
+    options: ["Florish & Blotts", "Weasleys' Wizard Wheezes", "The Leaky Cauldron", "Hogsmeade"],
+    houses: ["Ravenclaw", "Gryffindor", "Slytherin", "Hufflepuff"]
   },
   {
     question: "Which magical artifact would you like to possess?",
-    options: ["Marauder's Map", "Elder Wand", "Alastor Moody's Eyeball", "Invisibility Cloak"],
-    houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
+    options: ["Invisibility Cloak", "Alastor Moody's Eyeball", "Elder Wand", "Marauder's Map"],
+    houses: ["Hufflepuff", "Ravenclaw", "Slytherin", "Gryffindor"]
   },
   {
     question: "What is your favorite magical creature?",
-    options: ["Phoenix", "Dragon", "Unicorn", "Thestral"],
-    houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
+    options: ["Unicorn", "Thestral", "Dragon", "Phoenix"],
+    houses: ["Ravenclaw", "Hufflepuff", "Slytherin", "Gryffindor"]
   },
   {
     question: "If you could have one magical ability, what would it be?",
-    options: ["Apparition", "Super Strength", "Mind Reading", "Animagus"],
-    houses: ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"]
+    options: ["Legilimency", "Apparition", "Animagus", "Occlumency"],
+    houses: ["Slytherin", "Gryffindor", "Hufflepuff", "Ravenclaw"]
   }
 ];
+
+
+
 
 
 function startQuiz() {
@@ -76,17 +79,39 @@ function loadQuestion() {
   }
 }
 
+let gryffindorAnswers = [];
+let slytherinAnswers = [];
+let ravenclawAnswers = [];
+let hufflepuffAnswers = [];
+
 function selectAnswer(btn) {
   const selectedAnswerIndex = Array.from(btn.parentNode.children).indexOf(btn);
   answers.push(selectedAnswerIndex);
 
+ 
+  const currentHouse = questions[currentQuestion].houses[selectedAnswerIndex];
+  
+
+  switch (currentHouse) {
+    case "Gryffindor":
+      gryffindorAnswers.push(selectedAnswerIndex);
+      break;
+    case "Slytherin":
+      slytherinAnswers.push(selectedAnswerIndex);
+      break;
+    case "Ravenclaw":
+      ravenclawAnswers.push(selectedAnswerIndex);
+      break;
+    case "Hufflepuff":
+      hufflepuffAnswers.push(selectedAnswerIndex);
+      break;
+  }
 
   const options = document.getElementsByClassName('option');
   for (let i = 0; i < options.length; i++) {
     options[i].classList.remove('selected');
   }
 
-  
   btn.classList.add('selected');
 
   document.getElementById('nextButton').style.display = 'block';
@@ -126,18 +151,25 @@ function nextQuestion() {
 
 
 function sortUser() {
-  const answerCounts = [0, 0, 0, 0]; 
-  answers.forEach(answerIndex => {
-      answerCounts[answerIndex]++;
-  });
-  const maxCount = Math.max(...answerCounts);
-  // const maxCount = Math.max (0, 0 , 0, 0)
-  const dominantHouseIndex = answerCounts.indexOf(maxCount);
-  const dominantHouse = questions[0].houses[dominantHouseIndex];
+  const houseCounts = {
+    "Gryffindor": gryffindorAnswers.length,
+    "Slytherin": slytherinAnswers.length,
+    "Ravenclaw": ravenclawAnswers.length,
+    "Hufflepuff": hufflepuffAnswers.length
+  };
+
+  let dominantHouse = "";
+  let maxCount = 0;
+
+  for (const [house, count] of Object.entries(houseCounts)) {
+    if (count > maxCount) {
+      maxCount = count;
+      dominantHouse = house;
+    }
+  }
 
   const resultContainer = document.getElementById('result');
   resultContainer.textContent = `Congratulations! You belong to ${dominantHouse}!`;
-
 
   const imageContainer = document.getElementById('houseImageContainer');
   let imageName;
@@ -154,8 +186,8 @@ function sortUser() {
     case "Slytherin":
       imageName = "slytherinhat.png";
       break;
-    // default:
-    //   imageName = "default.png"; 
+    default:
+      imageName = "default.png"; 
   }
   imageContainer.innerHTML = `<img src="assets/${imageName}" alt="${dominantHouse} Hat">`;
 }
