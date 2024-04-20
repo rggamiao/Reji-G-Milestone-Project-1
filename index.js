@@ -131,6 +131,7 @@ function sortUser() {
       answerCounts[answerIndex]++;
   });
   const maxCount = Math.max(...answerCounts);
+  // const maxCount = Math.max (0, 0 , 0, 0)
   const dominantHouseIndex = answerCounts.indexOf(maxCount);
   const dominantHouse = questions[0].houses[dominantHouseIndex];
 
@@ -153,11 +154,21 @@ function sortUser() {
     case "Slytherin":
       imageName = "slytherinhat.png";
       break;
-    default:
-      imageName = "default.png"; 
+    // default:
+    //   imageName = "default.png"; 
   }
   imageContainer.innerHTML = `<img src="assets/${imageName}" alt="${dominantHouse} Hat">`;
 }
 
+// switch(expression) {
+//   case x:
+//     // code block
+//     break;
+//   case y:
+//     // code block
+//     break;
+//   default:
+//     // code block
+// }
 
 loadQuestion();
