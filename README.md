@@ -1,5 +1,5 @@
 M1 Project
-Sorting Hat Game
+This is a quiz game based on the Harry Potter universe where it sorts users into a house based on their answers.
 
 Sorting Hat results made by User: Sarahnazareth on DeviantArt
 
@@ -15,6 +15,10 @@ This is a quiz game that sorts the user into a Hogwarts house based on the answe
 ## Deployment
 
 The web game is deployed at https://rggamiao.github.io/ 
+
+The game is a quiz game which operates mostly through mouse clicks.
+
+Currently there is no function for when users have a tie in houses (the same amount of answers in two or more houses)
 
 
 ## Game Logic
