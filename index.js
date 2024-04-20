@@ -51,7 +51,10 @@ const questions = [
   }
 ];
 
+
 function startQuiz() {
+
+  
 
   document.getElementById('startPage').style.display = 'none';
   

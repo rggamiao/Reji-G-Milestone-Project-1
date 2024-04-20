@@ -1,7 +1,9 @@
 M1 Project
 Sorting Hat Game
 
-Sorting Hat results made by User: Sarahnazareth on Deviant Art
+Sorting Hat results made by User: Sarahnazareth on DeviantArt
+
+Sorting Hat Image made by User: BaltoFan95 on DeviantArt
 
 Background Image made through Kaiber.io
 
